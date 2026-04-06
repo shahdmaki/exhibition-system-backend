@@ -17,6 +17,7 @@ use App\Http\Controllers\OrderController;
 */
 // أضيفي هذا السطر فوق مع الروابط العامة
 Route::post('orders', [OrderController::class, 'store']);
+
 Route::get('all-products', [ProductController::class, 'allProducts']);
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
@@ -65,7 +66,8 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::get('admin/dashboard/stats', [AdminController::class, 'getDashboardStats']);
          Route::get('admin/booth-requests/pending', [BoothBookingController::class, 'getPendingRequests']);
         Route::post('admin/booth-requests/{id}/approve', [BoothBookingController::class, 'approveRequest']);
-   
+       Route::get('orders', [OrderController::class, 'index']);
+       Route::delete('orders/{id}', [OrderController::class, 'destroy']);
     });
   
 });
