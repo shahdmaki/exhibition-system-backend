@@ -16,11 +16,8 @@ class ExhibitionController extends Controller
         $request->validate([
             'title'      => 'required|string|max:255',
             'location'   => 'required|string',
-            //after_or_equal:todayمنع إنشاء معرض بتاريخ قديم (من الماضي).
             'start_date' => 'required|date|after_or_equal:today',
-            //after:start_dateمنع المستخدم من إدخال تاريخ نهاية يسبق تاريخ البداية
             'end_date'   => 'required|date|after:start_date',   
-            //in:upcoming,active,completedلضمان أن حالة المعرض لن تخرج عن هذه الكلمات الثلاث فقط،
             'status'     => 'required|in:upcoming,active,completed',
         ]);
         $exhibition = Exhibition::create($request->all());

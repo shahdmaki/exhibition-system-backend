@@ -1,0 +1,1672 @@
+{
+  "info": {
+    "_postman_id": "545769a4-f673-4fc2-844e-f30be530e9ed",
+    "name": "exb system",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "48223935",
+    "_collection_link": "https://go.postman.co/collection/48223935-545769a4-f673-4fc2-844e-f30be530e9ed?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "ex",
+      "item": [
+        {
+          "name": "Products",
+          "item": [
+            {
+              "name": "create products",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA1MTU0LCJleHAiOjE3NzYwMDg3NTQsIm5iZiI6MTc3NjAwNTE1NCwianRpIjoiT3p0dGlyNUVETVM0cmRDZiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImV4aGliaXRvciJ9.GlEzcg_W91EXQdu2EhfaQQmsD36cFb7Bt70PaXfdvSY",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "لابتوب فائق السرعة X1",
+                      "type": "text",
+                      "uuid": "cbf4081a-89d3-44d6-a909-885a4ba18bf9"
+                    },
+                    {
+                      "key": "price",
+                      "value": "1200.00",
+                      "type": "text",
+                      "uuid": "5d589db7-4c39-4997-b0dd-9a0e1ca67fd5"
+                    },
+                    {
+                      "key": "quantity",
+                      "value": "10",
+                      "type": "text",
+                      "uuid": "4374e442-f1f8-4c67-a1c3-c5451fc127a5"
+                    },
+                    {
+                      "key": "booth_id",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "df5c624d-d320-4018-a31b-4b9dcd262bda"
+                    },
+                    {
+                      "key": "description",
+                      "value": "أحدث معالج مع ذاكرة 32 جيجا بايت",
+                      "type": "text",
+                      "uuid": "3608a753-2e45-4aa7-9f86-d813b22463e9"
+                    },
+                    {
+                      "key": "category_id",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "88a3a130-763d-41aa-bd26-d38ca40595ae"
+                    },
+                    {
+                      "key": "image",
+                      "type": "file",
+                      "uuid": "4be963b8-a1ae-4267-b877-a5f94c8392e9",
+                      "src": "postman-cloud:///1f1367f2-74e3-47a0-b4a1-2b1674024ece"
+                    },
+                    {
+                      "key": "exhibition_id",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "a88832dc-a965-47db-a31e-aa1248178d29"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/products",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "products"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Product",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzc2MDA2Mzc3LCJleHAiOjE3NzYwMDk5NzcsIm5iZiI6MTc3NjAwNjM3NywianRpIjoiYkUyTEhJaXBlRlByYmZhZCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InZpc2l0b3IifQ.EeaBpMl9j8me48CVulRlhken9ex2eafIENDTVqSm89A",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/products",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "products"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Product",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "quantity",
+                      "value": "6",
+                      "type": "text",
+                      "uuid": "36a2c267-418e-4033-b358-4e77630ea386"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/products/1?_method=PUT",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "products",
+                    "1"
+                  ],
+                  "query": [
+                    {
+                      "key": "_method",
+                      "value": "PUT"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Product",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/products/6",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "products",
+                    "6"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Filter by Booth",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/products?booth_id=1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "products"
+                  ],
+                  "query": [
+                    {
+                      "key": "booth_id",
+                      "value": "1"
+                    }
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "all-products",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/all-products",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "all-products"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Categories",
+          "item": [
+            {
+              "name": "Create Category",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzc2MDAxNzM0LCJleHAiOjE3NzYwMDUzMzQsIm5iZiI6MTc3NjAwMTczNCwianRpIjoieGFNNHJPTkRSbTI4dnlLRSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.7pF9qn5xi8EXjcCmYcmgD15C964x2Xpw0iP5T58eLVw",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "إلكترونيات",
+                      "type": "text",
+                      "uuid": "ef29d131-a7bc-481d-84d7-b2849af2ebc2"
+                    },
+                    {
+                      "key": "description",
+                      "value": "تشمل الهواتف الذكية، الحواسيب، ومستلزمات التقنية",
+                      "type": "text",
+                      "uuid": "f46131eb-35f3-4cfd-8283-847ba12649d1"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/categories",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get All Categories",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/categories",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "categories"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Category",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "name",
+                      "value": "إلكترونيات محدثة",
+                      "type": "text",
+                      "uuid": "4a7066ee-ffe6-4e53-b58f-63381ddb85fa"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/categories/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "categories",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Category",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/categories/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "categories",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Booths",
+          "item": [
+            {
+              "name": "Create Booth",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzc2MDAxNzM0LCJleHAiOjE3NzYwMDUzMzQsIm5iZiI6MTc3NjAwMTczNCwianRpIjoieGFNNHJPTkRSbTI4dnlLRSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.7pF9qn5xi8EXjcCmYcmgD15C964x2Xpw0iP5T58eLVw",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "جناح الموبايلات ",
+                      "type": "text",
+                      "uuid": "e107de9f-88e5-4292-a29a-b3b818c80a09"
+                    },
+                    {
+                      "key": "exhibition_id",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "82b75e72-1bad-4092-a03a-39c2b1fbb24f"
+                    },
+                    {
+                      "key": "booth_number",
+                      "value": "A1",
+                      "type": "text",
+                      "uuid": "c1a90b33-5e94-45ad-8dc1-69f35bbfa240"
+                    },
+                    {
+                      "key": "price",
+                      "value": "500",
+                      "type": "text",
+                      "uuid": "fb456232-2312-42e7-bcbe-fc55a37a4f3a"
+                    },
+                    {
+                      "key": "status",
+                      "value": "available",
+                      "type": "text",
+                      "uuid": "9060a652-1f33-4849-962f-2646133e7141"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20",
+                      "type": "text",
+                      "uuid": "345d9434-25d2-42c9-97e7-2e1f74838ff9"
+                    },
+                    {
+                      "key": "coordinates",
+                      "value": "",
+                      "type": "text",
+                      "uuid": "d33cbadf-07b7-460c-b72d-d6ed6f6e8787"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/booths",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "booths"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get Booth",
+              "request": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/booths",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "booths"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Update Booth",
+              "request": {
+                "method": "PUT",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "key": "booth_number",
+                      "value": "101",
+                      "type": "text",
+                      "uuid": "eadccd56-f8fb-4ecd-aa64-05321c876937"
+                    },
+                    {
+                      "key": "size",
+                      "value": "20",
+                      "type": "text",
+                      "uuid": "c019e624-61d5-4959-bd30-6417d5afb025"
+                    },
+                    {
+                      "key": "price",
+                      "value": "500000",
+                      "type": "text",
+                      "uuid": "d9bc4064-9015-43dd-8985-a51c63dfeb9e"
+                    },
+                    {
+                      "key": "status",
+                      "value": "available",
+                      "type": "text",
+                      "uuid": "59ee0c27-9e32-4b64-9b20-a1471eaae218"
+                    },
+                    {
+                      "key": "exhibition_id",
+                      "value": "1",
+                      "type": "text",
+                      "uuid": "b5261fdb-e437-4c17-b381-c3b509d7cad0"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/booths/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "booths",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Delete Booth",
+              "request": {
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/booths/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "booths",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Exhibitions",
+          "item": [
+            {
+              "name": "Get All Exhibitions",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc0ODYxMTU5LCJleHAiOjE3NzQ4NjQ3NTksIm5iZiI6MTc3NDg2MTE1OSwianRpIjoiWW5FUThaSlc0YWRkbEdNciIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.DCTvSi0LBjw4w8Aqb9mjCcwN-fPZnEks08FHHjZxPH4",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/exhibitors",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "exhibitors"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Create Exhibition",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL3JlZ2lzdGVyIiwiaWF0IjoxNzc2MDAxNzM0LCJleHAiOjE3NzYwMDUzMzQsIm5iZiI6MTc3NjAwMTczNCwianRpIjoieGFNNHJPTkRSbTI4dnlLRSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.7pF9qn5xi8EXjcCmYcmgD15C964x2Xpw0iP5T58eLVw",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "title",
+                      "value": "معرض التكنولوجيا الأول",
+                      "type": "text",
+                      "uuid": "d6ad9977-52e2-41d6-af83-7604b59ba687"
+                    },
+                    {
+                      "key": "location",
+                      "value": "دمشق - أرض المعارض",
+                      "type": "text",
+                      "uuid": "38b470a7-df62-4c5e-bb73-f12a62897115"
+                    },
+                    {
+                      "key": "start_date",
+                      "value": "2026-05-01",
+                      "type": "text",
+                      "uuid": "f7a11a32-0e60-423b-9874-594debde9175"
+                    },
+                    {
+                      "key": "end_date",
+                      "value": "2026-06-10",
+                      "type": "text",
+                      "uuid": "58f7e236-f5d8-4c64-bf51-0985e17300b3"
+                    },
+                    {
+                      "key": "status",
+                      "value": "upcoming",
+                      "type": "text",
+                      "uuid": "ed67fd80-16cb-4a30-a7ef-666e94d88bc7"
+                    },
+                    {
+                      "key": "description",
+                      "value": "منصة تجمع بين المبتكرين والشركات البرمجية لعرض أحدث الحلول الرقمية في المنطقة",
+                      "type": "text",
+                      "uuid": "f6c8ef19-c6b4-441c-9012-978f534aa9f4"
+                    },
+                    {
+                      "key": "floor_plan_image",
+                      "value": "maps/main_floor_plan.png",
+                      "type": "text",
+                      "uuid": "5bbd41ce-1ee8-4431-8357-4bb7f5bd4b9f"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exhibitions",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exhibitions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "put Exhibitions",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exhibitions",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exhibitions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "delete Exhibitions",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exhibitions",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exhibitions"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "image",
+          "item": [
+            {
+              "name": "http://127.0.0.1:8000/storage/products/oVm7nMtuHa5ZStBpu0gwsXPIOd7U5MD8YOeHyjfC.jpg",
+              "request": {
+                "auth": {
+                  "type": "noauth"
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/storage/products/oVm7nMtuHa5ZStBpu0gwsXPIOd7U5MD8YOeHyjfC.jpg",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "storage",
+                    "products",
+                    "oVm7nMtuHa5ZStBpu0gwsXPIOd7U5MD8YOeHyjfC.jpg"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "auth operations",
+          "item": [
+            {
+              "name": "register",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "ayham",
+                      "type": "text",
+                      "uuid": "ac054907-f318-49cc-aa93-a0328b3197ce"
+                    },
+                    {
+                      "key": "email",
+                      "value": "ayham.makik@gmail.com",
+                      "type": "text",
+                      "uuid": "eb8d26d6-7446-4b98-ab78-57f8a33042eb"
+                    },
+                    {
+                      "key": "password",
+                      "value": "P@ssw0rd",
+                      "type": "text",
+                      "uuid": "f99fc461-b931-4d2c-8afa-2106375c0209"
+                    },
+                    {
+                      "key": "role",
+                      "value": "visitor",
+                      "type": "text",
+                      "uuid": "4c9c72f5-0402-4147-81ae-3a498aba48b8"
+                    },
+                    {
+                      "key": "phone",
+                      "value": "0965223517",
+                      "type": "text",
+                      "uuid": "17b73e4a-a062-41e3-8337-a68245a6a342"
+                    },
+                    {
+                      "key": "company_name",
+                      "value": "null",
+                      "type": "text",
+                      "uuid": "a6d2a230-7d39-4a23-b739-71e6386d227c"
+                    },
+                    {
+                      "key": "password_confirmation",
+                      "value": "P@ssw0rd",
+                      "type": "text",
+                      "uuid": "e0bc6edb-a95b-46ea-ae0d-d695d5b330e9"
+                    },
+                    {
+                      "key": "is_approved",
+                      "value": "0",
+                      "type": "text",
+                      "uuid": "d09b1d9e-5e78-4cfa-8435-e257a7162cd4"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/register",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "register"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "login",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "email",
+                      "value": "leen.jlad@gmail.com",
+                      "type": "text",
+                      "uuid": "eb5c3191-25a7-4840-8ac2-248a26fdde01"
+                    },
+                    {
+                      "key": "password",
+                      "value": "P@ssw0rd",
+                      "type": "text",
+                      "uuid": "7b9ca753-8dd2-4273-bf33-0821cea3be58"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/login",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "visitor",
+          "item": [
+            {
+              "name": "puying",
+              "request": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"customer_name\": \"ايهم المكي \",\r\n    \"customer_phone\": \"0912345678\",\r\n    \"customer_address\": \"دمشق - المزة\",\r\n    \"items\": [\r\n        {\r\n            \"product_id\": 1,\r\n            \"quantity\": 2\r\n        }\r\n    ]\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/orders",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "orders"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "get all exhibitions",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA5MDk5LCJleHAiOjE3NzYwMTI2OTksIm5iZiI6MTc3NjAwOTA5OSwianRpIjoiRlY5MXY2cWVhS0Qxd0VCSCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InZpc2l0b3IifQ.MNAsjUobv_tA6W1LehaSSmL7YzTjZMSzOrNYz7XyxVg",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/exhibitions",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "exhibitions"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "exhibition-products",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA5MDk5LCJleHAiOjE3NzYwMTI2OTksIm5iZiI6MTc3NjAwOTA5OSwianRpIjoiRlY5MXY2cWVhS0Qxd0VCSCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6InZpc2l0b3IifQ.MNAsjUobv_tA6W1LehaSSmL7YzTjZMSzOrNYz7XyxVg",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/products",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "products"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "order",
+          "item": [
+            {
+              "name": "delete order",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDI2NDgyLCJleHAiOjE3NzYwMzAwODIsIm5iZiI6MTc3NjAyNjQ4MiwianRpIjoiT0ppNFF5d1JkQXJhenFKMCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.6wsug7vmYdDAaW7MWZxj3dLYqxfKY9ER2zyLo54L_RE",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "DELETE",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/orders/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "orders",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Get All Orders",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA5OTIxLCJleHAiOjE3NzYwMTM1MjEsIm5iZiI6MTc3NjAwOTkyMSwianRpIjoiU2dJSnJFVXpOeTN5d2ZQSSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.IT-X3bZeSiN26q8jMfgr_IPB3Qqmd0qSR828t8JPzUw",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/orders",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "orders"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "Admin Panel",
+          "item": [
+            {
+              "name": "approve admin",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA0NTQxLCJleHAiOjE3NzYwMDgxNDEsIm5iZiI6MTc3NjAwNDU0MSwianRpIjoiRVRZS2xtZUNOT2pOM0g2USIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.Ojf-3oVYOtEYiuVFmiu_bt3LlAkGilEb7DpegG27IjU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/2/approve",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "2",
+                    "approve"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "Admin Stats",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc0ODE4NDM5LCJleHAiOjE3NzQ4MjIwMzksIm5iZiI6MTc3NDgxODQzOSwianRpIjoiM0lzdkZmbDlwNVRmaGJsRCIsInN1YiI6IjgiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.1QXozQFoJtOiIaQGdTz4iEqRr7MSeBXbaUQ23SRl6Yg",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/dashboard/stats",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "dashboard",
+                    "stats"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "booth-requests-pending",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA0NzQ1LCJleHAiOjE3NzYwMDgzNDUsIm5iZiI6MTc3NjAwNDc0NSwianRpIjoiY3YySVVnWkhRWFY4TE9XayIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.xw2oFQKgHvjceltKIrOhb28OTQg0ly1M-dD7Czf4Ylc",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": []
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/booth-requests/pending",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "booth-requests",
+                    "pending"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "The Admin Search",
+              "protocolProfileBehavior": {
+                "disableBodyPruning": true
+              },
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc0NzM4NzcxLCJleHAiOjE3NzQ3NDIzNzEsIm5iZiI6MTc3NDczODc3MSwianRpIjoiNnBadE1BbWU2eFQ0U0RVZiIsInN1YiI6IjgiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.TMP8g0caZ9tK6OuCsd3nHVlB70UAf2onw3j-GuhfeKw",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "body": {
+                  "mode": "formdata",
+                  "formdata": [
+                    {
+                      "key": "name",
+                      "value": "موبايلات",
+                      "type": "text",
+                      "uuid": "ef29d131-a7bc-481d-84d7-b2849af2ebc2"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/users/pending-exhibitors",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "users",
+                    "pending-exhibitors"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "booth-requests",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA0OTgzLCJleHAiOjE3NzYwMDg1ODMsIm5iZiI6MTc3NjAwNDk4MywianRpIjoicjdmZ3RlVU92U2JtNndtNSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.2k08hNJAnwuKCXjFr89xnvt4yfJWyplm--w0-02HGAU",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/admin/booth-requests/1/approve",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "admin",
+                    "booth-requests",
+                    "1",
+                    "approve"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "approve order",
+              "request": {
+                "auth": {
+                  "type": "bearer",
+                  "bearer": [
+                    {
+                      "key": "token",
+                      "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDI2NDgyLCJleHAiOjE3NzYwMzAwODIsIm5iZiI6MTc3NjAyNjQ4MiwianRpIjoiT0ppNFF5d1JkQXJhenFKMCIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImFkbWluIn0.6wsug7vmYdDAaW7MWZxj3dLYqxfKY9ER2zyLo54L_RE",
+                      "type": "string"
+                    }
+                  ]
+                },
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/json",
+                    "type": "text"
+                  }
+                ],
+                "url": {
+                  "raw": "http://127.0.0.1:8000/api/orders/2/approve",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "8000",
+                  "path": [
+                    "api",
+                    "orders",
+                    "2",
+                    "approve"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Exhibitor",
+      "item": [
+        {
+          "name": "booth-booking",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA0NjM0LCJleHAiOjE3NzYwMDgyMzQsIm5iZiI6MTc3NjAwNDYzNCwianRpIjoid0N3RkplZmtIbjhEcmFZZCIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImV4aGliaXRvciJ9.So8Ckuy9wrAZCVb9nwVDEiVL1OkMrkQdto1H0gOc2_E",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "booth_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "0518a1e9-8b88-4fc5-8833-7d78570b3bb0"
+                },
+                {
+                  "key": "exhibition_id",
+                  "value": "1",
+                  "type": "text",
+                  "uuid": "12a5b1d2-2a8b-4d56-84a0-8b59aae804ee"
+                },
+                {
+                  "key": "notes",
+                  "value": "نريد هذا الجناح بجانب الباب الرئيسي",
+                  "type": "text",
+                  "uuid": "da02d23e-515b-4f41-bad2-14475a122f7c"
+                }
+              ]
+            },
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/booth-booking/request",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "booth-booking",
+                "request"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "My Products",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc2MDA1OTE5LCJleHAiOjE3NzYwMDk1MTksIm5iZiI6MTc3NjAwNTkxOSwianRpIjoiV2tBaTcyVkxkaWJaSXFYaiIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImV4aGliaXRvciJ9.eY3ASarvzzP5JZMyr4q-zKIngcQmMwck6CcGgn6hUFg",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json",
+                "type": "text"
+              }
+            ],
+            "url": {
+              "raw": "http://127.0.0.1:8000/api/my-products",
+              "protocol": "http",
+              "host": [
+                "127",
+                "0",
+                "0",
+                "1"
+              ],
+              "port": "8000",
+              "path": [
+                "api",
+                "my-products"
+              ]
+            }
+          },
+          "response": []
+        }
+      ],
+      "auth": {
+        "type": "bearer"
+      },
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "packages": {},
+            "requests": {},
+            "exec": [
+              ""
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "test",
+      "request": {
+        "auth": {
+          "type": "bearer",
+          "bearer": [
+            {
+              "key": "token",
+              "value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNzc0NjE1Nzc2LCJleHAiOjE3NzQ2MTkzNzYsIm5iZiI6MTc3NDYxNTc3NiwianRpIjoiZ0ZFOTJ6QVd0OHROSnFSbSIsInN1YiI6IjEiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3Iiwicm9sZSI6ImV4aGliaXRvciJ9.VclXMbsm0IKR-znc0LoZqFl3CoCiidRu_TLVbpdgBBk",
+              "type": "string"
+            }
+          ]
+        },
+        "method": "POST",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "name",
+              "value": "منتج تجريبي 1",
+              "type": "text",
+              "uuid": "6f43c9ad-af5f-4e46-8c43-b42b49ba0416"
+            },
+            {
+              "key": "price",
+              "value": "1500",
+              "type": "text",
+              "uuid": "1075aed8-1eb5-406a-a163-7c2dc5fdde84"
+            },
+            {
+              "key": "quantity",
+              "value": "5",
+              "type": "text",
+              "uuid": "4f2cb54b-cc87-440d-ba1b-ac3974388354"
+            },
+            {
+              "key": "booth_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "45b7c543-65f4-438f-91f8-7458c0a4db02"
+            },
+            {
+              "key": "category_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "e03f3bfb-1208-4218-b41b-e4254d012b47"
+            },
+            {
+              "key": "exhibition_id",
+              "value": "1",
+              "type": "text",
+              "uuid": "849aaea1-929c-4835-b966-5d77e9e5876f"
+            },
+            {
+              "key": "image",
+              "type": "file",
+              "uuid": "77c6f68a-5bd9-44f4-ba19-d456472ba5c2",
+              "src": "/C:/Users/LOQ/Desktop/my project in 4 yerar/download.jpeg"
+            },
+            {
+              "key": "quantity",
+              "value": "5",
+              "type": "text",
+              "uuid": "2e1d94ab-9b6a-4f55-a509-4a6b9011f438"
+            }
+          ]
+        },
+        "url": {
+          "raw": "http://127.0.0.1:8000/api/products",
+          "protocol": "http",
+          "host": [
+            "127",
+            "0",
+            "0",
+            "1"
+          ],
+          "port": "8000",
+          "path": [
+            "api",
+            "products"
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

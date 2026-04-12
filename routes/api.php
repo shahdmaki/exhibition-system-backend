@@ -68,6 +68,6 @@ Route::group(['middleware' => 'auth:api'], function () {
         Route::post('admin/booth-requests/{id}/approve', [BoothBookingController::class, 'approveRequest']);
        Route::get('orders', [OrderController::class, 'index']);
        Route::delete('orders/{id}', [OrderController::class, 'destroy']);
-    });
-  
+     Route::post('orders/{id}/approve', [OrderController::class, 'approveOrder']);
+       });
 });

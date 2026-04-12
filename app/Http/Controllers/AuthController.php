@@ -24,7 +24,7 @@ class AuthController extends Controller
                 ->numbers()   // أرقام
                 ->symbols(),  // رموز مثل @ # $
         ],
-       'role' => 'required|string|in:admin,exhibitor', 
+       'role' => 'required|string|in:admin,exhibitor,visitor', 
         'phone' => 'nullable|string',
         'company_name' => 'required_if:role,exhibitor|string|max:255', 
     ]);

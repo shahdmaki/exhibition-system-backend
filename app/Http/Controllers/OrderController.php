@@ -10,26 +10,28 @@ use Illuminate\Support\Facades\DB;
 class OrderController extends Controller
 {
 public function store(Request $request)
-    {
-        // 1. التحقق من البيانات القادمة من الزائر
-        $request->validate([
-            'customer_name' => 'required|string',
-            'customer_phone' => 'required|string',
-            'items' => 'required|array', // مصفوفة تحتوي على المنتجات المطلوبة
-            'items.*.product_id' => 'required|exists:products,id',
-            'items.*.quantity' => 'required|integer|min:1',
-        ]);
-           $isDuplicate = Order::where('customer_phone', $request->customer_phone)
+{
+    
+    $request->validate([
+        'customer_name' => 'required|string',
+        'customer_phone' => 'required|string',
+        'items' => 'required|array',
+        'items.*.product_id' => 'required|exists:products,id',
+        'items.*.quantity' => 'required|integer|min:1',
+    ]);
+
+    
+    $isDuplicate = Order::where('customer_phone', $request->customer_phone)
                         ->where('created_at', '>=', now()->subSeconds(60))
                         ->exists();
 
     if ($isDuplicate) {
-        return response()->json([
-            'status' => 'error',
-            'message' => 'عذراً، هذا الطلب مسجل مسبقاً! يرجى الانتظار دقيقة قبل المحاولة مرة أخرى.'
-        ], 429); // 429 تعني Too Many Requests
+       return $this->sendError('عذراً، هذا الطلب مسجل مسبقاً! يرجى الانتظار دقيقة.', 429);
     }
-        // نستخدم DB::transaction عشان إذا صار خطأ بأي خطوة، يلغي كل شي وما تضرب البيانات
+    
+
+    // --- هنا التعديل الأساسي (إضافة try-catch) ---
+    try {
         return DB::transaction(function () use ($request) {
             
             // 2. إنشاء الطلب الأساسي
@@ -37,7 +39,8 @@ public function store(Request $request)
                 'customer_name' => $request->customer_name,
                 'customer_phone' => $request->customer_phone,
                 'customer_address' => $request->customer_address,
-                'total_price' => 0, // سنحسبه بعد قليل
+                'total_price' => 0, 
+                'status' => 'pending' 
             ]);
 
             $totalPrice = 0;
@@ -45,8 +48,8 @@ public function store(Request $request)
             foreach ($request->items as $item) {
                 $product = Product::find($item['product_id']);
 
-                
                 if ($product->quantity < $item['quantity']) {
+                    
                     throw new \Exception("عذراً، الكمية المطلوبة من {$product->name} غير متوفرة.");
                 }
 
@@ -58,38 +61,18 @@ public function store(Request $request)
                     'price' => $product->price,
                 ]);
 
-              
-                $product->decrement('quantity', $item['quantity']);
-
-                
                 $totalPrice += ($product->price * $item['quantity']);
             }
 
-            // 4. تحديث السعر الإجمالي النهائي في الطلب
             $order->update(['total_price' => $totalPrice]);
-            $order->load('items.product');
-            $formattedOrder = [
-            'order_id'    => $order->id,
-            'customer'    => $order->customer_name,
-            'total_bill'  => $totalPrice, 
-            'order_items' => $order->items->map(function ($detail) {
-                return [
-                    'product_name' => $detail->product->name,
-                    'unit_price'   => $detail->price,
-                    'quantity'     => $detail->quantity,
-                    'subtotal'     => $detail->price * $detail->quantity,
-                ];
-            }),
-        ];
-
-        return response()->json([
-            'message' => 'تم تسجيل طلبك بنجاح!',
-            'data'    => $formattedOrder
-        ], 201);
-    
-    });
-}
-    public function index()
+            
+            return $this->sendResponse(['order_id' => $order->id], 'تم تسجيل طلبك بنجاح!', 201);
+        });
+    } catch (\Exception $e) {
+       
+       return $this->sendError($e->getMessage(), 400);
+    }
+}    public function index()
 {
     // جلب كل الطلبات مع المنتجات اللي بداخلها
    $orders = Order::with('items.product')->latest()->get();
@@ -104,11 +87,26 @@ public function store(Request $request)
         ];
     });
 
-    return response()->json([
-        'status' => 'success',
-        'count'  => $formattedOrders->count(),
-        'orders' => $formattedOrders
-    ]);
+  return $this->sendResponse($formattedOrders, 'تم جلب الطلبات بنجاح.');
+}
+public function approveOrder($id)
+{
+    // استخدمي items بدلاً من products لأنها العلاقة المعرفة عندك
+    $order = Order::with('items.product')->findOrFail($id);
+
+    if ($order->status !== 'completed') {
+        DB::transaction(function () use ($order) {
+            foreach ($order->items as $item) {
+             
+                $item->product->decrement('quantity', $item->quantity);
+            }
+            $order->update(['status' => 'completed']);
+        });
+
+        return response()->json(['message' => 'تمت الموافقة وخصم الكميات من المخزن بنجاح!']);
+    }
+
+    return response()->json(['message' => 'الطلب مكتمل مسبقاً']);
 }
 public function destroy($id)
 {

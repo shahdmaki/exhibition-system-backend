@@ -18,4 +18,9 @@ class Order extends Model
     {
         return $this->hasMany(OrderItem::class);
     }
+    public function products()
+{
+    // افترضت هنا أنكِ تستخدمين جدول وسيط اسمه order_product
+    return $this->belongsToMany(Product::class , 'order_items')->withPivot('quantity');
+}
 }
