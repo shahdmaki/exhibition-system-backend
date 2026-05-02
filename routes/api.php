@@ -29,6 +29,7 @@ Route::get('booths/{id}/products', [ProductController::class, 'getProductsByBoot
 // روابط العرض الأساسية (متاحة للجميع)
 Route::get('categories', [CategoryController::class, 'index']);
 Route::get('exhibitions', [ExhibitionController::class, 'index']);
+Route::get('exhibitions/{id}', [ExhibitionController::class, 'show']);
 Route::get('booths', [BoothController::class, 'index']);
 
 
@@ -62,6 +63,8 @@ Route::group(['middleware' => 'auth:api'], function () {
         // روابط إدارة المحتوى
         Route::post('categories', [CategoryController::class, 'store']);
         Route::post('exhibitions', [ExhibitionController::class, 'store']);
+        Route::put('exhibitions/{id}', [ExhibitionController::class, 'update']);
+        Route::delete('exhibitions/{id}', [ExhibitionController::class, 'destroy']);
         Route::post('booths', [BoothController::class, 'store']);
         Route::get('admin/dashboard/stats', [AdminController::class, 'getDashboardStats']);
          Route::get('admin/booth-requests/pending', [BoothBookingController::class, 'getPendingRequests']);

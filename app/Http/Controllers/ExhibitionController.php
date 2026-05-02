@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Exhibition;
 class ExhibitionController extends Controller
 {
+    
     public function index()
     {
         $exhibitions = Exhibition::all();
@@ -14,11 +15,13 @@ class ExhibitionController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title'      => 'required|string|max:255',
-            'location'   => 'required|string',
-            'start_date' => 'required|date|after_or_equal:today',
-            'end_date'   => 'required|date|after:start_date',   
-            'status'     => 'required|in:upcoming,active,completed',
+          'title'        => 'required|string|max:255',
+        'location'     => 'required|string',
+        'start_date'   => 'required|date|after_or_equal:today',
+        'end_date'     => 'required|date|after:start_date',   
+        'status'       => 'required|in:upcoming,active,completed',
+        'total_area'   => 'required|numeric|min:1', 
+        'floors_count' => 'required|integer|min:1', 
         ]);
         $exhibition = Exhibition::create($request->all());
 
@@ -27,10 +30,10 @@ class ExhibitionController extends Controller
             'data'    => $exhibition
         ], 201);
     }
-    public function show($id)
+    public function show(int $id)
 {
-    $exhibition = Exhibition::find($id);
-
+    
+    $exhibition = Exhibition::query()->find($id);
     if (!$exhibition) {
         return response()->json(['message' => 'المعرض غير موجود'], 404);
     }
@@ -38,9 +41,9 @@ class ExhibitionController extends Controller
     return response()->json($exhibition, 200);
 }
 
-public function update(Request $request, $id)
+public function update(Request $request,int $id)
 {
-    $exhibition = Exhibition::find($id);
+    $exhibition = Exhibition::query()->find($id);
 
     if (!$exhibition) {
         return response()->json(['message' => 'المعرض غير موجود'], 404);
@@ -53,6 +56,8 @@ public function update(Request $request, $id)
         'start_date' => 'required|date',
         'end_date'   => 'required|date|after:start_date',
         'status'     => 'required|in:upcoming,active,completed',
+        'total_area'   => 'numeric|min:1', 
+        'floors_count' => 'integer|min:1',
     ]);
 
     $exhibition->update($request->all());
@@ -63,15 +68,15 @@ public function update(Request $request, $id)
     ], 200);
 }
 
-public function destroy($id)
+public function destroy(int $id)
 {
-    $exhibition = Exhibition::find($id);
-
-    if (!$exhibition) {
+   
+    if (!Exhibition::query()->where('id', $id)->exists()) {
         return response()->json(['message' => 'المعرض غير موجود'], 404);
     }
 
-    $exhibition->delete();
+
+    Exhibition::query()->where('id', $id)->delete();
 
     return response()->json(['message' => 'تم حذف المعرض بنجاح'], 200);
 }

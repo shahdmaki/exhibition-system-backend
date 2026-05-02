@@ -13,7 +13,9 @@ class Exhibition extends Model
         'end_date', 
         'location', 
         'status', 
-        'floor_plan_image'
+        'floor_plan_image',
+        'total_area',
+        'floors_count'
     ];
     public function categories()
 {

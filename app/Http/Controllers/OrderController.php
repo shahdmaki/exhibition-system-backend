@@ -11,7 +11,6 @@ class OrderController extends Controller
 {
 public function store(Request $request)
 {
-    
     $request->validate([
         'customer_name' => 'required|string',
         'customer_phone' => 'required|string',
@@ -20,7 +19,7 @@ public function store(Request $request)
         'items.*.quantity' => 'required|integer|min:1',
     ]);
 
-    
+    // منع تكرار الطلب خلال دقيقة واحدة
     $isDuplicate = Order::where('customer_phone', $request->customer_phone)
                         ->where('created_at', '>=', now()->subSeconds(60))
                         ->exists();
@@ -28,28 +27,27 @@ public function store(Request $request)
     if ($isDuplicate) {
        return $this->sendError('عذراً، هذا الطلب مسجل مسبقاً! يرجى الانتظار دقيقة.', 429);
     }
-    
 
-    // --- هنا التعديل الأساسي (إضافة try-catch) ---
     try {
         return DB::transaction(function () use ($request) {
             
-            // 2. إنشاء الطلب الأساسي
+            // 1. إنشاء الطلب الأساسي بحالة "approved" تلقائياً
             $order = Order::create([
                 'customer_name' => $request->customer_name,
                 'customer_phone' => $request->customer_phone,
                 'customer_address' => $request->customer_address,
                 'total_price' => 0, 
-                'status' => 'pending' 
+                'status' => 'approved' // تم التغيير إلى مقبول تلقائياً
             ]);
 
             $totalPrice = 0;
 
             foreach ($request->items as $item) {
-                $product = Product::find($item['product_id']);
+                // استخدام lockForUpdate لمنع حدوث تضارب عند الطلب المتزامن في نفس اللحظة
+                $product = Product::where('id', $item['product_id'])->lockForUpdate()->first();
 
+                // التحقق من توفر الكمية
                 if ($product->quantity < $item['quantity']) {
-                    
                     throw new \Exception("عذراً، الكمية المطلوبة من {$product->name} غير متوفرة.");
                 }
 
@@ -61,18 +59,22 @@ public function store(Request $request)
                     'price' => $product->price,
                 ]);
 
+                // خصم الكمية من المخزون تلقائياً [تحديث جدول المنتجات]
+                $product->decrement('quantity', $item['quantity']);
+
                 $totalPrice += ($product->price * $item['quantity']);
             }
 
+            // تحديث السعر النهائي للطلب
             $order->update(['total_price' => $totalPrice]);
             
-            return $this->sendResponse(['order_id' => $order->id], 'تم تسجيل طلبك بنجاح!', 201);
+            return $this->sendResponse(['order_id' => $order->id], 'تمت عملية الشراء والقبول تلقائياً لتوفر الكمية!', 201);
         });
     } catch (\Exception $e) {
-       
        return $this->sendError($e->getMessage(), 400);
     }
-}    public function index()
+}
+    public function index()
 {
     // جلب كل الطلبات مع المنتجات اللي بداخلها
    $orders = Order::with('items.product')->latest()->get();
