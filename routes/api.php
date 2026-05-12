@@ -21,6 +21,8 @@ Route::post('orders', [OrderController::class, 'store']);
 Route::get('all-products', [ProductController::class, 'allProducts']);
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
+Route::post('send-otp', [AuthController::class, 'sendOtp']);
+Route::post('verify-otp', [AuthController::class, 'verifyOtp']);
 
 Route::get('products', [ProductController::class, 'index']);
 Route::get('products/search/{name}', [ProductController::class, 'search']);
